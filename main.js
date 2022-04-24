@@ -13,22 +13,7 @@ function drawRect() {
 
     const span = document.querySelector('#areaSpan')
 
-    if (widthValue === '') {
-        isEmptyInput(width);
-    }
-    if (heightValue === '') {
-        isEmptyInput(height);
-    }
-    if (xValue === '') {
-        isEmptyInput(x);
-    }
-    if (yValue === '') {
-        isEmptyInput(y);
-    }
-    if ((widthValue + xValue) > 300) {
-        alert('out of canvas border')
-    }
-    if ((heightValue + yValue) > 300) {
+    if ((widthValue + xValue) > 300 || (heightValue + yValue) > 300) {
         alert('out of canvas border')
     } else {
         span.innerHTML = calcSize(widthValue, heightValue)
@@ -47,12 +32,6 @@ function drawRect() {
 function calcSize(x, y, size) {
     size = x * y;
     return size;
-}
-
-function isEmptyInput(item) {
-    if (item.value === '') {
-        item.style.borderColor = 'red';
-    }
 }
 
 function reset() {
